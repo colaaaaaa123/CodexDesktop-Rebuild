@@ -4,11 +4,7 @@ This is a maintained fork focused on keeping Codex Desktop builds and releases w
 
 ## Why this fork exists
 
-This project builds on the original cross-platform rebuild by **Haleclipse / Cometix** and continues maintaining release pipelines, binary staging, and packaging updates.
-
-The base rebuild that made this possible lives here:
-- [Haleclipse/CodexDesktop-Rebuild](https://github.com/Haleclipse/CodexDesktop-Rebuild)
-- [Haleclipse profile](https://github.com/Haleclipse)
+This fork keeps the desktop rebuild current and easy to install, with ongoing maintenance for release pipelines, binary staging, and packaging updates.
 
 ## Latest release and CLI version
 
@@ -53,17 +49,21 @@ npm run dev
 
 | Status | Check |
 | --- | --- |
-| ✅ | `node --check forge.config.js` |
-| ✅ | `node --check scripts/stage-codex-binaries.js` |
-| ✅ | `node --check scripts/start-dev.js` |
-| ✅ | `npm run stage:host` |
-| ✅ | `GitHub Actions Build & Release (master push)` |
+| :white_check_mark: | `node --check forge.config.js` |
+| :white_check_mark: | `node --check scripts/stage-codex-binaries.js` |
+| :white_check_mark: | `node --check scripts/start-dev.js` |
+| :white_check_mark: | `npm run stage:host` |
+| :white_check_mark: | `GitHub Actions Build & Release (master push)` |
 
 Checks last verified on February 13, 2026.
 
 ## Credit
 
 Massive credit to **Haleclipse / Cometix** for the original desktop rebuild architecture and release foundation.
+
+Original rebuild:
+- [Haleclipse/CodexDesktop-Rebuild](https://github.com/Haleclipse/CodexDesktop-Rebuild)
+- [Haleclipse profile](https://github.com/Haleclipse)
 
 Upstream Codex CLI is from OpenAI:
 - [OpenAI Codex](https://github.com/openai/codex)
