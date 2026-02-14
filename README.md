@@ -22,6 +22,15 @@ npm run stage:host
 npm run dev
 ```
 
+## Validation
+
+| Check | Status |
+| --- | --- |
+| `npm ls @openai/codex` (`0.101.0`) | ✅ Pass |
+| `npm run stage:host` | ✅ Pass |
+| `node --check forge.config.js` | ✅ Pass |
+| `node --check scripts/patch-console-epipe.js` | ✅ Pass |
+
 ## Program Structure
 
 ```text
