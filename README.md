@@ -1,29 +1,20 @@
-# Codex Desktop Rebuild - Maintained Fork
+# Codex Desktop Rebuild (Fork)
 
-This is a maintained fork focused on keeping Codex Desktop builds and releases working across platforms with a simple install path for users.
+Maintained fork of Codex Desktop with pinned Codex CLI binaries and Electron packaging.
 
-## Why this fork exists
+## Basics
 
-This fork keeps the desktop rebuild current and easy to install, with ongoing maintenance for release pipelines, binary staging, and packaging updates.
+- Latest release: `v1.0.5`
+- App version in this repo: `1.0.5`
+- Pinned CLI package: `@openai/codex 0.101.0`
+- Spark note: Spark can be used when your ChatGPT account/backend exposes it in the model picker.
 
-## Latest release and CLI version
+## Quick Start
 
-- Latest fork release: `v1.0.4`
-- This repo is currently pinned to: `@openai/codex 0.99.0`
-- Upstream npm latest `@openai/codex`: `0.101.0` (checked on February 13, 2026)
+1. Download from [Releases](https://github.com/chrisbuchanpham/CodexDesktop-Rebuild/releases/latest).
+2. Install and launch Codex.
 
-## Download
-
-- Latest release page: [https://github.com/chrisbuchanpham/CodexDesktop-Rebuild/releases/latest](https://github.com/chrisbuchanpham/CodexDesktop-Rebuild/releases/latest)
-- Windows installer example: [https://github.com/chrisbuchanpham/CodexDesktop-Rebuild/releases/download/v1.0.4/Codex-1.0.4.Setup.exe](https://github.com/chrisbuchanpham/CodexDesktop-Rebuild/releases/download/v1.0.4/Codex-1.0.4.Setup.exe)
-
-## Quick install
-
-1. Download the latest `.exe` from Releases.
-2. Run the installer.
-3. Launch Codex.
-
-## Build from source
+## Build From Source
 
 ```bash
 npm install
@@ -31,43 +22,22 @@ npm run stage:host
 npm run dev
 ```
 
-`npm run stage:host` is required before local startup so the runtime binaries are available.
+## Program Structure
 
-## Build commands
+```text
+├── src/
+│   ├── .vite/build/     # Main process (Electron)
+│   └── webview/         # Renderer (Frontend)
+├── resources/
+│   ├── electron.icns    # App icon
+│   └── notification.wav # Sound
+├── scripts/
+│   └── patch-copyright.js
+├── forge.config.js      # Electron Forge config
+└── package.json
+```
 
-- `npm run build`
-- `npm run build:all`
-- `npm run build:win-x64`
-- `npm run build:mac-x64`
-- `npm run build:mac-arm64`
-- `npm run build:linux-x64`
-- `npm run build:linux-arm64`
-- `npm run stage:host`
-- `npm run stage:all`
+## Credits
 
-## Validation checks
-
-| Status | Check |
-| --- | --- |
-| :white_check_mark: | `node --check forge.config.js` |
-| :white_check_mark: | `node --check scripts/stage-codex-binaries.js` |
-| :white_check_mark: | `node --check scripts/start-dev.js` |
-| :white_check_mark: | `npm run stage:host` |
-| :white_check_mark: | `GitHub Actions Build & Release (master push)` |
-
-Checks last verified on February 13, 2026.
-
-## Credit
-
-Massive credit to **Haleclipse / Cometix** for the original desktop rebuild architecture and release foundation.
-
-Original rebuild:
-- [Haleclipse/CodexDesktop-Rebuild](https://github.com/Haleclipse/CodexDesktop-Rebuild)
-- [Haleclipse profile](https://github.com/Haleclipse)
-
-Upstream Codex CLI is from OpenAI:
-- [OpenAI Codex](https://github.com/openai/codex)
-
-## License
-
-Codex CLI by OpenAI is licensed under Apache-2.0.
+- Original rebuild architecture: [Haleclipse/CodexDesktop-Rebuild](https://github.com/Haleclipse/CodexDesktop-Rebuild)
+- Upstream Codex CLI: [OpenAI Codex](https://github.com/openai/codex)

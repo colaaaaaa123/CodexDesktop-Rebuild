@@ -1,5 +1,5 @@
 {
-  "codexVersion": "0.99.0",
+  "codexVersion": "0.101.0",
   "targets": {
     "darwin-x64": {
       "triple": "x86_64-apple-darwin",

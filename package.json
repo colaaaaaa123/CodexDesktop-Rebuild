@@ -1,13 +1,12 @@
 {
   "name": "codex-rebuild",
   "productName": "Codex",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Codex Electron App - Cross-platform Build",
   "main": "src/.vite/build/main.js",
   "scripts": {
-    "start": "npm run stage:host && node scripts/start-dev.js",
-    "dev": "npm run stage:host && node scripts/start-dev.js",
-
+    "start": "npm run stage:host && npm run patch:epipe && node scripts/start-dev.js",
+    "dev": "npm run stage:host && npm run patch:epipe && node scripts/start-dev.js",
     "stage:host": "node scripts/stage-codex-binaries.js --host",
     "stage:darwin-x64": "node scripts/stage-codex-binaries.js --platform=darwin --arch=x64",
     "stage:darwin-arm64": "node scripts/stage-codex-binaries.js --platform=darwin --arch=arm64",
@@ -15,28 +14,21 @@
     "stage:linux-x64": "node scripts/stage-codex-binaries.js --platform=linux --arch=x64",
     "stage:linux-arm64": "node scripts/stage-codex-binaries.js --platform=linux --arch=arm64",
     "stage:all": "node scripts/stage-codex-binaries.js --all",
-
-    "patch": "node scripts/patch-copyright.js && node scripts/patch-i18n.js && node scripts/patch-process-polyfill.js",
-
+    "patch": "node scripts/patch-copyright.js && node scripts/patch-i18n.js && node scripts/patch-process-polyfill.js && node scripts/patch-console-epipe.js",
+    "patch:epipe": "node scripts/patch-console-epipe.js",
     "forge:package": "electron-forge package",
     "forge:make": "npm run stage:host && npm run patch && electron-forge make",
-
     "build": "npm run build:current",
     "build:current": "npm run forge:make",
-
     "build:mac": "npm run build:mac-arm64 && npm run build:mac-x64",
     "build:mac-arm64": "npm run stage:darwin-arm64 && npm run patch && electron-forge make --platform=darwin --arch=arm64",
     "build:mac-x64": "npm run stage:darwin-x64 && npm run patch && electron-forge make --platform=darwin --arch=x64",
-
     "build:win": "npm run build:win-x64",
     "build:win-x64": "npm run stage:win32-x64 && npm run patch && electron-forge make --platform=win32 --arch=x64",
-
     "build:linux": "npm run build:linux-x64 && npm run build:linux-arm64",
     "build:linux-x64": "npm run stage:linux-x64 && npm run patch && electron-forge make --platform=linux --arch=x64",
     "build:linux-arm64": "npm run stage:linux-arm64 && npm run patch && electron-forge make --platform=linux --arch=arm64",
-
     "build:all": "npm run build:mac && npm run build:win && npm run build:linux",
-
     "postinstall": "npm run rebuild:native",
     "rebuild:native": "electron-rebuild"
   },
@@ -70,7 +62,7 @@
     "zod": "^4.1.13"
   },
   "optionalDependencies": {
-    "@openai/codex": "0.99.0",
+    "@openai/codex": "0.101.0",
     "electron-liquid-glass": "1.1.1"
   },
   "codexBuildFlavor": "prod",
