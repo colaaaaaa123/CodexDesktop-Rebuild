@@ -14,7 +14,7 @@
     "stage:linux-x64": "node scripts/stage-codex-binaries.js --platform=linux --arch=x64",
     "stage:linux-arm64": "node scripts/stage-codex-binaries.js --platform=linux --arch=arm64",
     "stage:all": "node scripts/stage-codex-binaries.js --all",
-    "patch": "node scripts/patch-copyright.js && node scripts/patch-i18n.js && node scripts/patch-prewarm-permissions.js && node scripts/patch-process-polyfill.js && node scripts/patch-console-epipe.js",
+    "patch": "node scripts/patch-copyright.js && node scripts/patch-i18n.js && node scripts/patch-prewarm-permissions.js && node scripts/patch-windows-path-env.js && node scripts/patch-process-polyfill.js && node scripts/patch-console-epipe.js",
     "patch:epipe": "node scripts/patch-console-epipe.js",
     "forge:package": "electron-forge package",
     "forge:make": "npm run stage:host && npm run patch && electron-forge make",
