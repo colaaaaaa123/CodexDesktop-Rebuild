@@ -1,7 +1,7 @@
 {
   "name": "codex-rebuild",
   "productName": "Codex",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Codex Electron App - Cross-platform Build",
   "main": "src/.vite/build/main.js",
   "scripts": {
@@ -66,5 +66,5 @@
     "electron-liquid-glass": "1.1.1"
   },
   "codexBuildFlavor": "prod",
-  "codexBuildNumber": "517"
+  "codexBuildNumber": "669"
 }
