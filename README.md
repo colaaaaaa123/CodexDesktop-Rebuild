@@ -6,8 +6,8 @@ Maintained fork of Codex Desktop with pinned Codex CLI binaries and Electron pac
 
 - Latest release: `v1.0.7`
 - App version in this repo: `1.0.7`
-- Pinned CLI package: `@openai/codex 0.101.0`
-- CLI update note: Bundled CLI is updated and pinned to `@openai/codex 0.101.0`.
+- Pinned CLI package: `@openai/codex 0.104.0-alpha.1`
+- CLI update note: Bundled CLI is updated and pinned to `@openai/codex 0.104.0-alpha.1`.
 - Spark note: Spark can be used when your ChatGPT account/backend exposes it in the model picker.
 
 ## Quick Start
@@ -27,7 +27,7 @@ npm run dev
 
 | Check | Status |
 | --- | --- |
-| `npm ls @openai/codex` (`0.101.0`) | ✅ Pass |
+| `npm ls @openai/codex` (`0.104.0-alpha.1`) | ✅ Pass |
 | `npm run stage:host` | ✅ Pass |
 | `node --check forge.config.js` | ✅ Pass |
 | `node --check scripts/patch-console-epipe.js` | ✅ Pass |

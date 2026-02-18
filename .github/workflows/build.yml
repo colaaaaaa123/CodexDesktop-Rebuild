@@ -237,7 +237,7 @@ jobs:
             artifacts/**/*.exe
           draft: false
           body: |
-            CLI updated: bundled @openai/codex is pinned to 0.101.0.
+            CLI updated: bundled @openai/codex is pinned to 0.104.0-alpha.1.
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
