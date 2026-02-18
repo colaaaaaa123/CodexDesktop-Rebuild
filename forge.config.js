@@ -329,14 +329,16 @@ module.exports = {
 
       // 0. 原生模块白名单 — Vite 已将所有纯 JS 依赖 bundle 进 main.js，
       //    node_modules 只需保留不能 bundle 的原生模块及其运行时 binding 辅助包
-      //    对标官方构建的 7 个包：better-sqlite3, bindings, file-uri-to-path,
-      //    node-addon-api, node-gyp-build, node-pty, electron-liquid-glass
+      //    对标官方构建并补充 Windows 安装所需依赖：
+      //    better-sqlite3, bindings, file-uri-to-path, node-addon-api,
+      //    node-gyp-build, node-pty, electron-liquid-glass, electron-squirrel-startup
       const allowedModules = new Set([
         "better-sqlite3",        // SQLite 原生模块
         "bindings",              // 原生模块 .node 文件定位器（better-sqlite3 运行时 require）
         "file-uri-to-path",      // bindings 的运行时依赖
         "node-addon-api",        // N-API 辅助（better-sqlite3 运行时需要）
         "node-pty",              // 终端模拟原生模块
+        "electron-squirrel-startup", // Windows Squirrel 安装阶段启动参数处理
       ]);
 
       // 平台条件依赖

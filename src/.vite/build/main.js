@@ -1,7 +1,14 @@
 "use strict";
 
 const electron = require("electron");
-const startedBySquirrel = require("electron-squirrel-startup");
+let startedBySquirrel = false;
+try {
+  startedBySquirrel = require("electron-squirrel-startup");
+} catch {
+  startedBySquirrel =
+    process.platform === "win32" &&
+    process.argv.some((arg) => arg.startsWith("--squirrel"));
+}
 
 if (startedBySquirrel) {
   electron.app.quit();
